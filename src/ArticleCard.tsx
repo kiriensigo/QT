@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 type Props = {
   item: any;
 };
@@ -15,6 +17,25 @@ export const ArticleCard = ({ item }: Props) => {
 
   return (
     <article className="article-card">
+      <header className="article-header">
+        <a
+          href={`https://qiita.com/${item.user.id}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src={item.user.profile_image_url}
+            alt={item.user.id}
+            className="article-user-image"
+          />
+        </a>
+        <div className="user-info">
+          <p className="user-id">{item.user.id}</p>
+          <p className="post-date">
+            {dayjs(item.created_at).format("YYYY年MM月DD日")}
+          </p>
+        </div>
+      </header>
       <div className="article-user">{/* ユーザー情報 */}</div>
       <h2 className="article-title">
         <a href={item.url} target="_blank" rel="noreferrer">
