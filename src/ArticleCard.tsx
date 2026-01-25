@@ -1,7 +1,19 @@
 import dayjs from "dayjs";
 
+type QiitaItem = {
+  id: string;
+  title: string;
+  url: string;
+  rendered_body: string;
+  created_at: string;
+  user: {
+    id: string;
+    profile_image_url: string;
+  };
+};
+
 type Props = {
-  item: any;
+  item: QiitaItem;
 };
 
 export const ArticleCard = ({ item }: Props) => {
